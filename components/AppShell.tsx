@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ModeCard } from "@/components/ModeCard";
 import { MustDoCard } from "@/components/MustDoCard";
 import { NightCheckInCard } from "@/components/NightCheckInCard";
@@ -20,31 +20,30 @@ const NORMAL_BASELINE_REMINDERS = ["Water", "Room reset", "Sleep target"];
 const SURVIVAL_MINIMUM_REMINDERS = ["Water", "Room reset", "Sleep target"];
 
 export function AppShell() {
-  const [todayKey, setTodayKey] = useState(getLocalDateKey());
-  const [record, setRecord] = useState<DayRecord>(() => createEmptyDayRecord(getLocalDateKey()));
-  const [recentDays, setRecentDays] = useState<DayRecord[]>([]);
-  const [isReady, setIsReady] = useState(false);
+  const initialDateKey = getLocalDateKey();
+  const [todayKey, setTodayKey] = useState(initialDateKey);
+  const [record, setRecord] = useState<DayRecord>(() => {
+    if (typeof window === "undefined") {
+      return createEmptyDayRecord(initialDateKey);
+    }
+    return getDayRecord(initialDateKey);
+  });
   const [isResetOpen, setIsResetOpen] = useState(false);
+  const hasMounted = useRef(false);
 
   useEffect(() => {
-    const key = getLocalDateKey();
-    setTodayKey(key);
-    setRecord(getDayRecord(key));
-    setRecentDays(listRecentDays(key, 5));
-    setIsReady(true);
-  }, []);
-
-  useEffect(() => {
-    if (!isReady) {
+    if (typeof window === "undefined") {
       return;
     }
-
+    if (!hasMounted.current) {
+      hasMounted.current = true;
+      return;
+    }
     saveDayRecord(record);
-    setRecentDays(listRecentDays(todayKey, 5));
-  }, [isReady, record, todayKey]);
+  }, [record]);
 
   useEffect(() => {
-    if (!isReady) {
+    if (typeof window === "undefined") {
       return;
     }
 
@@ -56,11 +55,10 @@ export function AppShell() {
 
       setTodayKey(currentDateKey);
       setRecord(getDayRecord(currentDateKey));
-      setRecentDays(listRecentDays(currentDateKey, 5));
     }, 60_000);
 
     return () => window.clearInterval(intervalId);
-  }, [isReady, todayKey]);
+  }, [todayKey]);
 
   const updateRecord = (updater: (previous: DayRecord) => DayRecord) => {
     setRecord((previous) => {
@@ -144,6 +142,12 @@ export function AppShell() {
   };
 
   const isSurvivalMode = record.mode === "survival";
+  const recentDays = useMemo(() => {
+    if (typeof window === "undefined") {
+      return [record];
+    }
+    return listRecentDays(todayKey, 5);
+  }, [record, todayKey]);
 
   return (
     <main className="min-h-screen bg-slate-100 px-3 py-5">
