@@ -93,6 +93,7 @@ export default function HomePage() {
 
           <div className="hero-images">
             <Image
+              className="hero-photo"
               src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=80"
               alt="Fresh vegetables arranged on a rustic table from a local farm."
               width={1200}
@@ -101,6 +102,7 @@ export default function HomePage() {
               priority
             />
             <Image
+              className="hero-photo"
               src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80"
               alt="A parent and child selecting colorful produce at an outdoor market."
               width={1200}
@@ -156,7 +158,7 @@ export default function HomePage() {
             {sampleLunches.map((lunch) => (
               <article className="card menu-card" key={lunch.day}>
                 <Image
-                  className="menu-photo"
+                  className="menu-card-image"
                   src={lunch.imageUrl}
                   alt={lunch.imageAlt}
                   width={900}
@@ -166,7 +168,7 @@ export default function HomePage() {
                 <p className="menu-day">{lunch.day}</p>
                 <h3>{lunch.title}</h3>
                 <p>{lunch.description}</p>
-                <p>
+                <p className="menu-link-row">
                   <a
                     href={lunch.recipeUrl}
                     target="_blank"
