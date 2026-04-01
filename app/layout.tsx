@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Baseline",
-  description: "A planner for bad days, not perfect days.",
+  title: "FuelID Lunch Delivery | Farm-Fresh School Lunches",
+  description:
+    "Healthy, whole-food lunches delivered Monday, Wednesday, and Friday for local K-12 families.",
 };
 
 export default function RootLayout({
