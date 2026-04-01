@@ -250,20 +250,13 @@ textarea:focus-visible {
   margin-bottom: 0.4rem;
 }
 
-.menu-photo {
+.menu-card-image {
   width: 100%;
   height: auto;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 0.8rem;
-}
-
-.menu-link {
-  display: inline-block;
-  margin-top: 0.7rem;
-  color: var(--primary-strong);
-  font-weight: 600;
 }
 
 .stat-card {
@@ -404,7 +397,7 @@ textarea:focus-visible {
     aspect-ratio: 16 / 10;
   }
 
-  .menu-photo {
+  .menu-card-image {
     aspect-ratio: 5 / 4;
   }
 }
