@@ -193,13 +193,14 @@ textarea:focus-visible {
   display: grid;
   gap: 1rem;
   align-content: start;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
 }
 
-.hero-images img {
+.hero-photo {
   width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3;
+  height: 240px;
   object-fit: cover;
+  display: block;
   border-radius: 16px;
   box-shadow: var(--shadow);
 }
@@ -252,9 +253,9 @@ textarea:focus-visible {
 
 .menu-card-image {
   width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1;
+  height: 220px;
   object-fit: cover;
+  display: block;
   border-radius: 10px;
   margin-bottom: 0.8rem;
 }
@@ -393,12 +394,12 @@ textarea:focus-visible {
     padding: 3.5rem 0;
   }
 
-  .hero-images img {
-    aspect-ratio: 16 / 10;
+  .hero-photo {
+    height: 230px;
   }
 
   .menu-card-image {
-    aspect-ratio: 5 / 4;
+    height: 230px;
   }
 }
 
