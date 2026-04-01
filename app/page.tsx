@@ -48,7 +48,7 @@ export default function HomePage() {
     {
       question: "How much does each meal cost?",
       answer:
-        "Pilot pricing is shared after signup confirmation. Families pay a refundable deposit to reserve a limited spot, then choose a meal plan that fits their needs.",
+        "Pilot pricing is shared after signup confirmation. Families pay a refundable deposit to reserve a spot, then choose a meal plan that fits their needs.",
     },
     {
       question: "Can I pause or cancel delivery?",
@@ -62,7 +62,7 @@ export default function HomePage() {
       <section className="hero section">
         <div className="container hero-grid">
           <div>
-            <p className="eyebrow">Limited Pilot Program</p>
+            <p className="eyebrow">Pilot Program</p>
             <h1>Farm-Fresh Lunches Delivered to Your Door</h1>
             <p className="lead">
               Healthy meals for your child, Monday through Wednesday. FuelID
@@ -223,9 +223,8 @@ export default function HomePage() {
           <div>
             <h2>Join the pilot waitlist</h2>
             <p className="section-lead">
-              Spots are limited for this pilot. Reserve your family&apos;s place
-              today with a refundable deposit and we&apos;ll follow up with next
-              steps.
+              Reserve your family&apos;s place in this pilot today with a
+              refundable deposit and we&apos;ll follow up with next steps.
             </p>
             <p className="deposit-note">
               Lunches are shipped once each week and intended to cover Monday,
