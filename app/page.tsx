@@ -41,28 +41,31 @@ export default function HomePage() {
 
   const nutritionStats = [
     {
-      value: "25%",
-      title: "Higher math achievement",
+      value: "0.03-0.05 SD",
+      title: "Higher test performance",
       detail:
-        "Elementary schools participating in a subsidized school breakfast program showed about 25% higher math scores over students' elementary years.",
-      sourceLabel: "Journal of Public Economics (Frisvold, 2014)",
-      sourceUrl: "https://doi.org/10.1016/j.jpubeco.2014.12.003",
+        "Students in schools that improved meal quality through healthier lunch vendors saw measurable gains in standardized test scores.",
+      sourceLabel:
+        "Journal of Public Economics (Anderson et al., 2018)",
+      sourceUrl: "https://doi.org/10.1016/j.jpubeco.2018.09.013",
     },
     {
-      value: "15.2%",
-      title: "Short-term math gains",
+      value: "~0.08 SD",
+      title: "Math score gains with more lunches",
       detail:
-        "Adolescents who had breakfast showed a 15.2% improvement in math correct answers over the morning, compared with 6.7% in fasting peers.",
-      sourceLabel: "Nutrients (Kawabata et al., 2021)",
-      sourceUrl: "https://doi.org/10.3390/nu13041278",
+        "In a large urban district study, each increase in school lunch participation was linked with stronger math performance.",
+      sourceLabel:
+        "Journal of Policy Analysis and Management (Schwartz & Rothbart, 2020)",
+      sourceUrl: "https://doi.org/10.1002/pam.22175",
     },
     {
-      value: "16.7%",
-      title: "Faster computation speed",
+      value: "~0.07 SD",
+      title: "ELA gains with school lunch participation",
       detail:
-        "In the same adolescent trial, students with breakfast improved computation speed by 16.7% versus 7.4% in fasting peers.",
-      sourceLabel: "Nutrients (Kawabata et al., 2021)",
-      sourceUrl: "https://doi.org/10.3390/nu13041278",
+        "The same school lunch study found improved English language arts outcomes as students participated in lunch more consistently.",
+      sourceLabel:
+        "Journal of Policy Analysis and Management (Schwartz & Rothbart, 2020)",
+      sourceUrl: "https://doi.org/10.1002/pam.22175",
     },
   ];
 
@@ -215,9 +218,8 @@ export default function HomePage() {
         <div className="container">
           <h2>Nutrition supports academic performance</h2>
           <p className="section-lead">
-            Published school nutrition research consistently links better meal
-            quality and regular breakfast intake with stronger academic
-            outcomes.
+            Published school lunch research links better meal quality and
+            stronger lunch participation with improved academic outcomes.
           </p>
           <div className="stats-grid">
             {nutritionStats.map((stat) => (
