@@ -8,6 +8,10 @@ export default function HomePage() {
       description:
         "A balanced bowl with lean chicken, rice, veggies, and flavorful toppings for a hearty start to the week.",
       recipeUrl: "https://www.momables.com/healthy-chicken-burrito-bowls/",
+      imageUrl:
+        "https://www.momables.com/wp-content/uploads/2019/02/chicken-burrito-bowls_INSTA.jpg",
+      imageAlt:
+        "Chicken burrito bowl lunch with fruit and carrots in a divided lunch container.",
     },
     {
       day: "Tuesday",
@@ -16,6 +20,10 @@ export default function HomePage() {
         "A kid-friendly pasta option with chicken and a creamy sun-dried tomato sauce for lasting energy.",
       recipeUrl:
         "https://www.momables.com/creamy-sun-dried-tomato-chicken-and-pasta-skillet-meal/",
+      imageUrl:
+        "https://www.momables.com/wp-content/uploads/2015/04/Sun-dried-tomato-pasta-thermos_WP-featured.jpg",
+      imageAlt:
+        "Creamy sun-dried tomato chicken pasta served in a thermos container.",
     },
     {
       day: "Wednesday",
@@ -24,6 +32,10 @@ export default function HomePage() {
         "A warm whole-food sandwich pairing chicken and apple for a satisfying sweet-savory lunch.",
       recipeUrl:
         "https://www.momables.com/chicken-apple-grilled-sandwich/",
+      imageUrl:
+        "https://www.momables.com/wp-content/uploads/2022/07/chicken-apple-grilled-sandwich_WP-feature.jpg",
+      imageAlt:
+        "Chicken apple grilled sandwich meal with grapes and almonds in a lunch container.",
     },
   ];
 
@@ -143,11 +155,24 @@ export default function HomePage() {
           <div className="menu-grid">
             {sampleLunches.map((lunch) => (
               <article className="card menu-card" key={lunch.day}>
+                <Image
+                  className="menu-photo"
+                  src={lunch.imageUrl}
+                  alt={lunch.imageAlt}
+                  width={900}
+                  height={700}
+                  sizes="(max-width: 980px) 100vw, 30vw"
+                />
                 <p className="menu-day">{lunch.day}</p>
                 <h3>{lunch.title}</h3>
                 <p>{lunch.description}</p>
                 <p>
-                  <a href={lunch.recipeUrl} target="_blank" rel="noreferrer">
+                  <a
+                    href={lunch.recipeUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="menu-link"
+                  >
                     View meal details
                   </a>
                 </p>
