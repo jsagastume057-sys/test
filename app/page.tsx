@@ -4,21 +4,26 @@ export default function HomePage() {
   const sampleLunches = [
     {
       day: "Monday",
-      title: "Roasted Chicken Bowl",
+      title: "Healthy Chicken Burrito Bowls",
       description:
-        "Roasted local chicken, seasonal vegetables, and herbed quinoa with a citrus vinaigrette.",
+        "A balanced bowl with lean chicken, rice, veggies, and flavorful toppings for a hearty start to the week.",
+      recipeUrl: "https://www.momables.com/healthy-chicken-burrito-bowls/",
+    },
+    {
+      day: "Tuesday",
+      title: "Creamy Sun-Dried Tomato Chicken and Pasta",
+      description:
+        "A kid-friendly pasta option with chicken and a creamy sun-dried tomato sauce for lasting energy.",
+      recipeUrl:
+        "https://www.momables.com/creamy-sun-dried-tomato-chicken-and-pasta-skillet-meal/",
     },
     {
       day: "Wednesday",
-      title: "Rainbow Veggie Wrap",
+      title: "Chicken Apple Grilled Sandwich",
       description:
-        "Whole-grain wrap with hummus, crunchy farm-fresh vegetables, and fruit on the side.",
-    },
-    {
-      day: "Friday",
-      title: "Turkey & Sweet Potato Plate",
-      description:
-        "Lean turkey meatballs, roasted sweet potatoes, steamed greens, and apple slices.",
+        "A warm whole-food sandwich pairing chicken and apple for a satisfying sweet-savory lunch.",
+      recipeUrl:
+        "https://www.momables.com/chicken-apple-grilled-sandwich/",
     },
   ];
 
@@ -26,7 +31,7 @@ export default function HomePage() {
     {
       question: "Which areas are included in delivery?",
       answer:
-        "The pilot currently serves families within our local district and nearby neighborhoods. Enter your address in the form and we will confirm eligibility quickly.",
+        "The pilot currently serves families within our local district and nearby neighborhoods. Enter your address in the form and we will quickly confirm eligibility.",
     },
     {
       question: "How much does each meal cost?",
@@ -36,7 +41,7 @@ export default function HomePage() {
     {
       question: "Can I pause or cancel delivery?",
       answer:
-        "Yes. We offer flexible scheduling during the pilot, including day changes and cancellations with notice. Full policy details are provided during onboarding.",
+        "Yes. We offer flexible scheduling during the pilot, including pauses and cancellations with notice. Full policy details are provided during onboarding.",
     },
   ];
 
@@ -48,9 +53,10 @@ export default function HomePage() {
             <p className="eyebrow">Limited Pilot Program</p>
             <h1>Farm-Fresh Lunches Delivered to Your Door</h1>
             <p className="lead">
-              Healthy meals for your child, three days a week. FuelID Lunch
-              Delivery brings whole-food lunches made with local ingredients
-              right to your home or preferred drop-off point.
+              Healthy meals for your child, Monday through Wednesday. FuelID
+              Lunch Delivery ships one fresh weekly package with locally
+              sourced, nutritious lunches right to your home or preferred
+              drop-off point.
             </p>
 
             <div className="hero-actions">
@@ -63,11 +69,12 @@ export default function HomePage() {
             </div>
 
             <div className="schedule-card" aria-label="Delivery schedule">
-              <p className="schedule-title">Weekly delivery days</p>
+              <p className="schedule-title">Weekly shipment schedule</p>
               <ul>
+                <li>Ships once weekly</li>
                 <li>Monday</li>
+                <li>Tuesday</li>
                 <li>Wednesday</li>
-                <li>Friday</li>
               </ul>
             </div>
           </div>
@@ -101,16 +108,17 @@ export default function HomePage() {
               <h3>Sign up in minutes</h3>
               <p>
                 Share your family details, delivery address, your child&apos;s
-                grade, and dietary preferences through our simple mobile-friendly
-                form.
+                grade, and dietary preferences through our simple
+                mobile-friendly form.
               </p>
             </article>
             <article className="card">
               <p className="step-number">2</p>
-              <h3>We prepare and deliver</h3>
+              <h3>We prep and ship weekly</h3>
               <p>
                 Our team prepares balanced lunches using unprocessed ingredients
-                from nearby farms and delivers on Monday, Wednesday, and Friday.
+                and ships one weekly package to cover Monday, Tuesday, and
+                Wednesday meals.
               </p>
             </article>
             <article className="card">
@@ -129,8 +137,8 @@ export default function HomePage() {
         <div className="container">
           <h2>Sample menu</h2>
           <p className="section-lead">
-            A look at one week of pilot lunches crafted with local, seasonal
-            produce.
+            We are currently using these Momables meals for our Monday-Tuesday-
+            Wednesday pilot menu.
           </p>
           <div className="menu-grid">
             {sampleLunches.map((lunch) => (
@@ -138,62 +146,13 @@ export default function HomePage() {
                 <p className="menu-day">{lunch.day}</p>
                 <h3>{lunch.title}</h3>
                 <p>{lunch.description}</p>
+                <p>
+                  <a href={lunch.recipeUrl} target="_blank" rel="noreferrer">
+                    View meal details
+                  </a>
+                </p>
               </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="partners" className="section">
-        <div className="container">
-          <h2>Local partners</h2>
-          <p className="section-lead">
-            We partner with regional farms and suppliers to support our
-            community and reduce food miles.
-          </p>
-          <div className="partners-grid">
-            <article className="card partner-card">
-              <Image
-                src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1000&q=80"
-                alt="Rows of crops at a local family farm."
-                width={1000}
-                height={700}
-                sizes="(max-width: 980px) 100vw, 30vw"
-              />
-              <h3>Green Valley Farm</h3>
-              <p>
-                &ldquo;Supplying fresh produce picked within 24 hours of delivery
-                day.&rdquo;
-              </p>
-            </article>
-            <article className="card partner-card">
-              <Image
-                src="https://images.unsplash.com/photo-1444858345149-1c46ea404276?auto=format&fit=crop&w=1000&q=80"
-                alt="Farmer holding a crate of freshly harvested vegetables."
-                width={1000}
-                height={700}
-                sizes="(max-width: 980px) 100vw, 30vw"
-              />
-              <h3>Oak Ridge Growers</h3>
-              <p>
-                &ldquo;Growing nutrient-dense vegetables with sustainable soil
-                practices.&rdquo;
-              </p>
-            </article>
-            <article className="card partner-card">
-              <Image
-                src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&w=1000&q=80"
-                alt="Baskets of fresh fruit from a nearby orchard."
-                width={1000}
-                height={700}
-                sizes="(max-width: 980px) 100vw, 30vw"
-              />
-              <h3>Riverbend Orchard Co-op</h3>
-              <p>
-                &ldquo;Providing seasonal fruit varieties that kids actually love to
-                eat.&rdquo;
-              </p>
-            </article>
           </div>
         </div>
       </section>
@@ -242,8 +201,9 @@ export default function HomePage() {
               steps.
             </p>
             <p className="deposit-note">
-              Pilot note: Deposit amount and full terms are shared during
-              confirmation.
+              Lunches are shipped once each week and intended to cover Monday,
+              Tuesday, and Wednesday meals. Deposit amount and full terms are
+              shared during confirmation.
             </p>
           </div>
 
@@ -266,22 +226,6 @@ export default function HomePage() {
               required
             />
 
-            <fieldset>
-              <legend>Preferred delivery days</legend>
-              <div className="checkbox-row">
-                <label>
-                  <input type="checkbox" name="days" value="Monday" /> Monday
-                </label>
-                <label>
-                  <input type="checkbox" name="days" value="Wednesday" />{" "}
-                  Wednesday
-                </label>
-                <label>
-                  <input type="checkbox" name="days" value="Friday" /> Friday
-                </label>
-              </div>
-            </fieldset>
-
             <label htmlFor="dietaryNeeds">Dietary restrictions or allergies</label>
             <textarea
               id="dietaryNeeds"
@@ -300,8 +244,8 @@ export default function HomePage() {
       <section className="closing-cta">
         <div className="container">
           <h2>
-            Join the FarmFresh pilot today and give your child the gift of
-            wholesome lunches.
+            Join the FuelID pilot today and give your child the gift of
+            fresh, nutritious lunches.
           </h2>
           <a href="#signup" className="btn btn-primary">
             Get Started
