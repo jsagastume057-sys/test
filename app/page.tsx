@@ -39,6 +39,33 @@ export default function HomePage() {
     },
   ];
 
+  const nutritionStats = [
+    {
+      value: "25%",
+      title: "Higher math achievement",
+      detail:
+        "Elementary schools participating in a subsidized school breakfast program showed about 25% higher math scores over students' elementary years.",
+      sourceLabel: "Journal of Public Economics (Frisvold, 2014)",
+      sourceUrl: "https://doi.org/10.1016/j.jpubeco.2014.12.003",
+    },
+    {
+      value: "15.2%",
+      title: "Short-term math gains",
+      detail:
+        "Adolescents who had breakfast showed a 15.2% improvement in math correct answers over the morning, compared with 6.7% in fasting peers.",
+      sourceLabel: "Nutrients (Kawabata et al., 2021)",
+      sourceUrl: "https://doi.org/10.3390/nu13041278",
+    },
+    {
+      value: "16.7%",
+      title: "Faster computation speed",
+      detail:
+        "In the same adolescent trial, students with breakfast improved computation speed by 16.7% versus 7.4% in fasting peers.",
+      sourceLabel: "Nutrients (Kawabata et al., 2021)",
+      sourceUrl: "https://doi.org/10.3390/nu13041278",
+    },
+  ];
+
   const faqItems = [
     {
       question: "Which areas are included in delivery?",
@@ -184,24 +211,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="testimonials" className="section section-alt">
+      <section id="impact" className="section">
         <div className="container">
-          <h2>What families are saying</h2>
-          <div className="testimonial-grid">
-            <blockquote className="card">
-              <p>
-                &ldquo;Placeholder testimonial: My child is eating more vegetables
-                now, and lunch prep stress is gone.&rdquo;
-              </p>
-              <cite>- Parent, Grade 4 student</cite>
-            </blockquote>
-            <blockquote className="card">
-              <p>
-                &ldquo;Placeholder testimonial: A thoughtful approach to nutrition
-                with practical delivery for busy families.&rdquo;
-              </p>
-              <cite>- Local nutrition specialist</cite>
-            </blockquote>
+          <h2>Nutrition supports academic performance</h2>
+          <p className="section-lead">
+            Published school nutrition research consistently links better meal
+            quality and regular breakfast intake with stronger academic
+            outcomes.
+          </p>
+          <div className="stats-grid">
+            {nutritionStats.map((stat) => (
+              <article className="card stat-card" key={stat.title}>
+                <p className="stat-value">{stat.value}</p>
+                <h3>{stat.title}</h3>
+                <p>{stat.detail}</p>
+                <p className="stat-source">
+                  Source:{" "}
+                  <a href={stat.sourceUrl} target="_blank" rel="noreferrer">
+                    {stat.sourceLabel}
+                  </a>
+                </p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
